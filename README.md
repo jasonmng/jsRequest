@@ -73,7 +73,7 @@ This module was created to accomplish three things:
 
       produces a get request to: http://www.example.com/reports/daily/format/json
 
-   request.fetch('daily_report').data('format','json').post().success().fail();
+   request.fetch('daily_report').data('format','json').post().success( cb, this ).fail( cb, this );
 ````
 
 ````
