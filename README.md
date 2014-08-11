@@ -61,7 +61,11 @@ This module was created to accomplish three things:
 
    - Old way: wrap the request into a function yourself that can be called when your ready
 
-   - New way: buildings.data({ page: 2 }).jsonp().success( displayImages );
+   - New way: 
+
+   ````
+   buildings.data({ page: 2 }).jsonp().success( displayImages );
+   ````
 
 
 # Other Use Examples
