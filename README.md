@@ -14,11 +14,11 @@ This module was created to accomplish three things:
 
 # Sample Use
 
-### Using Flicker API old way
-
 ````
    function displayImages( resp ) { … }
 ````
+
+### Using Flicker API old way
 
 ````
    $.ajax({
