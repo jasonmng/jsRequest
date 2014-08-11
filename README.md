@@ -3,6 +3,8 @@ jsRequest
 
 A jQuery ajax wrapper
 
+This module uses underscore methods and therefore is a dependency.  the request_so.js file takes the necessary underscore methods and defines them.
+
 # Reason for being
 
 This module was created to accomplish three things: 
