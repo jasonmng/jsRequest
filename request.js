@@ -4,7 +4,7 @@
 
   if (typeof define === 'function' && define.amd) {
 
-    define(['jquery','underscore'], function( $ ) { return factory( root, $, _ ); });
+    define(['jquery','underscore'], function( $, _ ) { return factory( root, $, _ ); });
 
   } else if (typeof exports !== 'undefined') {
 
@@ -259,13 +259,15 @@
 
       fetch: function( endpoint ) {
 
-         var loc = this.locations[endpoint];
+         var loc; 
 
-         if ( loc ) {
-            return new url( loc );
+         if ( this.locations[endpoint] !== undefined ){
+           loc = this.locations[endpoint];
          } else {
-            return new url( endpoint );
+            loc = endpoint;
          }
+
+         return new url( loc );
 
       },
 
