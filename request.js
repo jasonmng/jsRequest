@@ -74,7 +74,7 @@
       
       _clean: function( url, ignoreFSlash, ignoreBSlash ) {
 
-         url = url.trim();
+         url = url.toString().trim();
 
          if ( !ignoreFSlash ) {
             if ( url.charAt(0) == '/' ) {
@@ -160,8 +160,6 @@
       },
 
       post: function( method ){
-
-         this.reset();
 
          if ( method ) {
             this.options({'X-HTTP-Method-Override': 'POST',type: method});
@@ -253,8 +251,24 @@
    request.prototype = {
    
       add: function( name, url ) {
-         this.locations[name] = url;
+
+         var urls;
+
+         if ( name == null ) return this;
+
+         if ( typeof name == 'object' ) {
+            urls = name;
+         } else {
+            ( urls = {} )[name] = url;
+         }
+
+         for( url in urls ) {
+            url = url.toLowerCase();
+            this.locations[url] = urls[url];
+         }
+
          return this;
+
       },
 
       fetch: function( endpoint ) {
